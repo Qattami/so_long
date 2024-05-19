@@ -1,37 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 14:35:31 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/19 16:12:17 by iqattami         ###   ########.fr       */
+/*   Created: 2024/05/17 18:31:26 by iqattami          #+#    #+#             */
+/*   Updated: 2024/05/19 16:08:33 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef SO_LONG
+# define SO_LONG
 
-int main(int ac, char **av)
+#include <unistd.h>
+# include <fcntl.h>
+#include <stdio.h>
+
+
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
+
+
+typedef struct  Data
 {
-    if(ac > 1)
-    {
-        s_data data;
+    int collect;
+    int player;
+    int exit;
+    int enemy;
+    char **map;
+    int x_p;
+    int y_p;
+    int x_l;
+    int y_l;
+}s_data;
 
-        int len;
-        int c;
-        char tmp;
 
-        c = open("file.txt", O_RDONLY);
-        tmp = get_next_line(c);
-        if(!tmp)
-            return (1);
-        while (tmp)
-        {
-            len++;
-            tmp = get_next_line(c);
-            free(tmp);
-        }
-        
-    }
-}
+char	*get_next_line(int fd);
+char	*ft_strjoin1(char *s1, char *s2);
+
+
+#endif

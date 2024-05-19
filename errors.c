@@ -6,9 +6,11 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:35:21 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/16 15:01:23 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/05/17 18:34:04 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "so_long.h"
 
 int check_borther(char **str)
 {
@@ -58,3 +60,19 @@ int out_of_map(char **s)
     }
     return (0);
 }
+
+int line_len(char **str)
+{
+    int i;
+
+    i = 1;
+    while(str[i])
+    {
+        if(ft_strlen(str[0]) != ft_strlen(str[i]))
+            return (1);
+        i++;
+    }
+    return (0);
+}
+
+
