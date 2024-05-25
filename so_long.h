@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:31:26 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/19 16:08:33 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:24:16 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <unistd.h>
 # include <fcntl.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 
 
@@ -40,6 +41,17 @@ typedef struct  Data
 
 char	*get_next_line(int fd);
 char	*ft_strjoin1(char *s1, char *s2);
+int check_borther(char **str);
+int out_of_map(char **s);
+int line_len(char **str);
+int	ft_strlen(char *s);
+char	*ft_strchr(char *str, int character);
+char	*ft_strdup(char *s);
+int rectangular(char **tab, int len);
+
+
+
+
 
 
 #endif

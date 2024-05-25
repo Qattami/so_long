@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:35:41 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/19 15:19:40 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/05/25 04:13:07 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,51 @@ char	*ft_strjoin1(char *s1, char *s2)
 		return (NULL);
 	m = ft_copy(m, s1, s2);
 	return (m);
+}
+
+int	ft_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strchr(char *str, int character)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == (char)character)
+			return ((char *)str + i);
+		i++;
+	}
+	if (str[i] == (char)character)
+		return ((char *)str + i);
+	return (NULL);
+}
+
+char	*ft_strdup(char *s)
+{
+	char	*p;
+	int		i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	p = malloc(sizeof(char) * (i + 1));
+	if (p == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		p[i] = s[i];
+		i++;
+	}
+	p[i] = 0;
+	return (p);
 }

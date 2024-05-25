@@ -6,12 +6,24 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:35:21 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/17 18:34:04 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/05/25 21:24:01 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int rectangular(char **tab, int len)
+{
+    int i;
+
+    i = 0;
+    while(tab[i])
+    {
+        if(ft_strlen(tab[i++]) <= len)
+            return(1);
+    }
+    return (0);
+}
 int check_borther(char **str)
 {
     int i;
@@ -47,7 +59,7 @@ int out_of_map(char **s)
     int j;
 
     i = 0;
-    while(s[i][j])
+    while(s[i])
     {
         j = 0;
         while(s[i][j])
