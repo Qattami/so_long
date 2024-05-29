@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:31:26 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/25 21:24:16 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:30:32 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "minilibx-linux/mlx.h"
 
 
 # ifndef BUFFER_SIZE
@@ -41,13 +41,14 @@ typedef struct  Data
 
 char	*get_next_line(int fd);
 char	*ft_strjoin1(char *s1, char *s2);
-int check_borther(char **str);
+int check_border(char **str ,int len_get);
 int out_of_map(char **s);
 int line_len(char **str);
 int	ft_strlen(char *s);
 char	*ft_strchr(char *str, int character);
 char	*ft_strdup(char *s);
 int rectangular(char **tab, int len);
+void	ft_validate_path(char **tab, int len);
 
 
 

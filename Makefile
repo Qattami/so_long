@@ -6,38 +6,24 @@
 #    By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 04:01:12 by iqattami          #+#    #+#              #
-#    Updated: 2024/05/25 04:03:20 by iqattami         ###   ########.fr        #
+#    Updated: 2024/05/29 15:54:32 by iqattami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+NAME = so_long
+FLAGS = -Wall -Wextra -Werror #fsanitize=address -g3
+MLX_FLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+SOURCES =  errors.c g_n_l.c so_long.c split.c utils.c check_path.c
 
-SRCS = errors.c g_n_l.c so_long.c split.c utils.c
+OBJECTS = $(SOURCES:.c=.o)
 
-BONUS = 
-
-
-OBJ = $(SRCS:.c=.o)
-OBONUS = $(BONUS:.c=.o)
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-
-$(OBONUS): $(BONUS)
-	${CC} ${CFLAGS} -c ${BONUS}
-		ar rc $(NAME) $(OBONUS)
-
-bonus: $(OBONUS)
+all : $(NAME)
+$(NAME) :$(OBJECTS)
+	$(CC) $(FLAGS) $(OBJECTS) $(MLX_FLAGS) -o $(NAME)
 	
-
-clean:
-	rm -f $(OBJ) $(OBONUS)
-
-fclean: clean
-	rm -f $(NAME)
-
-re: fclean all
+clean :
+	rm -rf $(OBJECTS)
+fclean : clean
+		rm -rf $(NAME)
+re : fclean all
