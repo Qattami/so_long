@@ -6,11 +6,12 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:10:31 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/29 16:15:44 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/05/30 18:30:18 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 void ft_error(int fd)
 {
 	write(fd,"path error", 10);
@@ -42,29 +43,21 @@ int	ft_count_c(char **tab, int len)
 	return (count_c);
 }
 
-void	ft_floodfill(char**tab, int x, int y, int *count_c, int *e, int i, int j)
-{
-	if (x <= 0 || x >= i || y <= 0 || y >= j
-		|| tab[y][x] == '1' || tab[y][x] == 'c'
-		|| tab[y][x] == 'o' || tab[y][x] == 'e'
-		|| tab[y][x] == 'E')
-	{
-		if (tab[y][x] == 'E')
-			*e = 1;
-		return ;
-	}
-	if (tab[y][x] == 'C')
-	{
-		(*count_c)--;
-		tab[y][x] = 'c';
-	}
-	else if (tab[y][x] == '0')
-		tab[y][x] = 'o';
-	ft_floodfill(tab, x, (y + 1), count_c, e, i, j);
-	ft_floodfill(tab, x, (y - 1), count_c, e, i, j);
-	ft_floodfill(tab, (x + 1), y, count_c, e, i, j);
-	ft_floodfill(tab, (x - 1), y, count_c, e, i, j);
-}
+// void	ft_floodfill(char **tab, int x, int y, int *e, int i, int j)
+// {
+// 	if (x <= 0 || x >= i || y <= 0 || y >= j
+// 		|| tab[y][x] == '1' )
+// 		return;
+// 	if(tab[y][x] == 'C'|| tab[y][x] == 'P' || tab[y][x] == '0')
+// 		tab[x][y] = '1';
+	
+// 	if (tab[y][x] == 'E')
+// 		*e = 1;
+// 	ft_floodfill(tab, x, (y + 1), e, i, j);
+// 	ft_floodfill(tab, x, (y - 1), e, i, j);
+// 	ft_floodfill(tab, (x + 1), y, e, i, j);
+// 	ft_floodfill(tab, (x - 1), y, e, i, j);
+// }
 
 
 
@@ -72,31 +65,34 @@ void	ft_validate_path(char **tab, int len)
 {
 	int	x;
 	int	y;
-	int	count_c;
-	int *e;
-	y = 0;
-	*e = 0;
+	int e;
 	int i;
 	
-	count_c = ft_count_c(tab, len);
-	i = ft_strlen(tab[0]);
-	while (y < len)
+	y = 0;
+	printf("jiji\n");
+	while(y < 23)
 	{
-		x = 0;
-		while (x < i)
-		{
-			if (tab[y][x] == 'P')
-			{
-				ft_floodfill(tab, x, y, &count_c, e, i, len);
-				if (count_c != 0)
-					ft_error(1);
-				if (*e == 0)
-					ft_error(1);
-				return ;
-			}
-			x++;
-		}
+		printf("tab==%c",tab[0][y]);
 		y++;
 	}
-	write(1, "ok\n", 3);
+	// y = 0;
+	// e = 0;
+	// i = ft_strlen(tab[0]);
+	// while (y < len - 1)
+	// {
+	// 	x = 0;
+	// 	while (x < i)
+	// 	{
+	// 		if (tab[y][x] == 'P')
+	// 		{
+	// 			ft_floodfill(tab, x, y, &e, i, len);
+	// 			if (e == 0)
+	// 				ft_error(1);
+	// 			return ;
+	// 		}
+	// 		x++;
+	// 	}
+	// 	y++;
+	// }
+	// write(1, "ok\n", 3);
 }

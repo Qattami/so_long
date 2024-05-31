@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:35:21 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/29 16:46:26 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/05/30 18:36:44 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,37 +28,34 @@ int check_border(char **str ,int len_get)
 {
     int i;
     int len;
-    int clen;
     int j;
 
-    i = 0;
-    j = 0;
+    i = -1;
     len = ft_strlen(str[0]);
-    clen = len;
-    // printf("hhh ---->%d\n",len_get);
-    // while(i > len && clen > 0)
-    // {
-    //     if(str[0][i] != 1 || str[len_get][clen] != 1)
-    //         return (1);
-    //     i++;
-    //     clen--; 
-    // }
-    
-    while(str[i])
+    while(++i < len_get)
     {
-        printf("--> %s",str[i]);
-        i++;
-    }
-    i = 0;
-    while(str[i])
-    {
-        if(str[i][0] != 1 && str[i][ft_strlen(str[i]) - 2] != 1)
+    j = -1;
+        while(++j < len)
         {
-            printf("hii\n");
-            return (1);
+            printf("%c ", str[i][j]);
         }
-        i++;
     }
+      j = -1;
+      i = -1;
+    while(++i < len_get )
+        if(str[i][0] != '1')
+            return(1);
+    i = -1; 
+    while (++i < len_get)
+        if(str[i][len - 2] != '1')
+            return(1);
+    while(++j < len - 2)
+        if(str[0][j] != '1')
+            return (1);
+    j = -1;
+    while (++j < len - 2)
+        if (str[len_get - 1][j] != '1')
+            return (1);
     return (0);
 }
 
