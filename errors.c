@@ -14,15 +14,9 @@
 
 int rectangular(char **tab, int len)
 {
-    int i;
-
-    i = 0;
-    while(tab[i])
-    {
-        if(ft_strlen(tab[i++]) <= len)
-            return(1);
-    }
-    return (0);
+    if(ft_strlen(tab[0]) <= len)
+        return(1);
+    return(0);
 }
 int check_border(char **str ,int len_get)
 {
@@ -32,16 +26,11 @@ int check_border(char **str ,int len_get)
 
     i = -1;
     len = ft_strlen(str[0]);
-    while(++i < len_get)
-    {
-    j = -1;
-        while(++j < len)
-        {
-            printf("%c ", str[i][j]);
-        }
-    }
       j = -1;
       i = -1;
+    printf("%d\n",len_get);
+    printf("%d\n",len);
+
     while(++i < len_get )
         if(str[i][0] != '1')
             return(1);
@@ -59,19 +48,19 @@ int check_border(char **str ,int len_get)
     return (0);
 }
 
-int out_of_map(char **s)
+int out_of_map(char **s, int len)
 {
     int i;
     int j;
 
     i = 0;
-    while(s[i])
+    while(i < len)
     {
         j = 0;
         while(s[i][j])
         {
-            if(s[i][j] != 1 && s[i][j] != 0 && s[i][j] != 'C' && s[i][j] != 'E' && s[i][j] != 'P')
-                return (1);
+            if(s[i][j] != '1' && s[i][j] != '0' && s[i][j] != 'C' && s[i][j] != 'E' && s[i][j] != 'P')
+                return(1);
             j++;
         }
         i++;
@@ -79,12 +68,12 @@ int out_of_map(char **s)
     return (0);
 }
 
-int line_len(char **str)
+int line_len(char **str ,int len)
 {
     int i;
 
-    i = 1;
-    while(str[i])
+    i = 0;
+    while((len - 1) > i)
     {
         if(ft_strlen(str[0]) != ft_strlen(str[i]))
             return (1);

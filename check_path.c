@@ -43,21 +43,21 @@ int	ft_count_c(char **tab, int len)
 	return (count_c);
 }
 
-// void	ft_floodfill(char **tab, int x, int y, int *e, int i, int j)
-// {
-// 	if (x <= 0 || x >= i || y <= 0 || y >= j
-// 		|| tab[y][x] == '1' )
-// 		return;
-// 	if(tab[y][x] == 'C'|| tab[y][x] == 'P' || tab[y][x] == '0')
-// 		tab[x][y] = '1';
+void	ft_floodfill(char **tab, int x, int y, int *e, int i, int j)
+{
+	if (x <= 0 || x >= i || y <= 0 || y >= j
+		|| tab[y][x] == '1' )
+		return;
+	if(tab[y][x] == 'C'|| tab[y][x] == 'P' || tab[y][x] == '0')
+		tab[x][y] = '1';
 	
-// 	if (tab[y][x] == 'E')
-// 		*e = 1;
-// 	ft_floodfill(tab, x, (y + 1), e, i, j);
-// 	ft_floodfill(tab, x, (y - 1), e, i, j);
-// 	ft_floodfill(tab, (x + 1), y, e, i, j);
-// 	ft_floodfill(tab, (x - 1), y, e, i, j);
-// }
+	if (tab[y][x] == 'E')
+		*e = 1;
+	ft_floodfill(tab, x, (y + 1), e, i, j);
+	ft_floodfill(tab, x, (y - 1), e, i, j);
+	ft_floodfill(tab, (x + 1), y, e, i, j);
+	ft_floodfill(tab, (x - 1), y, e, i, j);
+}
 
 
 
@@ -68,31 +68,31 @@ void	ft_validate_path(char **tab, int len)
 	int e;
 	int i;
 	
-	y = 0;
-	printf("jiji\n");
-	while(y < 23)
-	{
-		printf("tab==%c",tab[0][y]);
-		y++;
-	}
 	// y = 0;
-	// e = 0;
-	// i = ft_strlen(tab[0]);
-	// while (y < len - 1)
+	// printf("jiji\n");
+	// while(y < 23)
 	// {
-	// 	x = 0;
-	// 	while (x < i)
-	// 	{
-	// 		if (tab[y][x] == 'P')
-	// 		{
-	// 			ft_floodfill(tab, x, y, &e, i, len);
-	// 			if (e == 0)
-	// 				ft_error(1);
-	// 			return ;
-	// 		}
-	// 		x++;
-	// 	}
+	// 	printf("tab==%c",tab[0][y]);
 	// 	y++;
 	// }
-	// write(1, "ok\n", 3);
+	y = 0;
+	e = 0;
+	i = ft_strlen(tab[0]);
+	while (y < len - 1)
+	{
+		x = 0;
+		while (x < i)
+		{
+			if (tab[y][x] == 'P')
+			{
+				ft_floodfill(tab, x, y, &e, i, len);
+				if (e == 0)
+					ft_error(1);
+				return ;
+			}
+			x++;
+		}
+		y++;
+	}
+	write(1, "ok\n", 3);
 }
