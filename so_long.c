@@ -18,7 +18,7 @@ int protection(char **tab, int len)
         return (write(1, "map is empty", 12), 1);
     if(line_len(tab, len) == 1)
         return (write(1, "Lines are not equal", 19), 1);
-    if(check_border(tab, len - 1) == 1)
+    if(check_border(tab, len) == 1)
         return (write(1, "border error", 13));   
     if(out_of_map(tab, len - 1))
         return (write(1, "invalide character", 18), 1);
@@ -48,7 +48,6 @@ int main(int ac, char **av)
     void *win;
     if(ac == 2)
     {
-         s_data data;
 
         int len;
         int c;
@@ -84,13 +83,10 @@ int main(int ac, char **av)
         if(protection(tab, len) == 1)
             write(1, "error\n", 6);
         
-        // ft_validate_path(tab, len);
-        // protection(tab, len);
-        // ft_validate_path(tab, len);
-        //  ptr = mlx_init();
-        //  win = mlx_new_window(ptr, 500, 600,
-		// 	"so_long!");
-        //     mlx_loop(ptr);
+         ptr = mlx_init();
+         win = mlx_new_window(ptr, 500, 600,
+			"so_long!");
+            mlx_loop(ptr);
         
     }
 }

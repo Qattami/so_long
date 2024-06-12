@@ -36,7 +36,7 @@ int check_border(char **str ,int len_get)
             return(1);
     i = -1; 
     while (++i < len_get)
-        if(str[i][len - 2] != '1')
+        if(str[i][len - 1] != '1')
             return(1);
     while(++j < len - 2)
         if(str[0][j] != '1')

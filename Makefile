@@ -10,20 +10,45 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
+# CC = cc
+# NAME = so_long
+# FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+# MLX_FLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+# SOURCES =  errors.c g_n_l.c so_long.c split.c utils.c check_path.c
+
+# OBJECTS = $(SOURCES:.c=.o)
+
+# all : $(NAME)
+# $(NAME) :$(OBJECTS)
+# 	$(CC) $(FLAGS) $(OBJECTS) $(MLX_FLAGS) -o $(NAME)
+	
+# clean :
+# 	rm -rf $(OBJECTS)
+# fclean : clean
+# 		rm -rf $(NAME)
+# re : fclean all
+
+
 NAME = so_long
-FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
-MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
-SOURCES =  errors.c g_n_l.c so_long.c split.c utils.c check_path.c
+FLAGS = -Wall -Wextra -Werror
+MLX_FLAGS = -lmlx -lXext -lX11 -lm 
+
+SOURCES = errors.c g_n_l.c so_long.c split.c utils.c check_path.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
 all : $(NAME)
+
 $(NAME) :$(OBJECTS)
-	$(CC) $(FLAGS) $(OBJECTS) $(MLX_FLAGS) -o $(NAME)
-	
+	$(CC) $(FLAGS) $^ $(MLX_FLAGS) -o $@
+    
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@    
+
 clean :
 	rm -rf $(OBJECTS)
+
 fclean : clean
-		rm -rf $(NAME)
+	rm -rf $(NAME)
+
 re : fclean all
