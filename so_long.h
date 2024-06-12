@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:31:26 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/31 15:39:04 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/06/13 00:55:07 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ typedef struct  Data
     int y_p;
     int x_l;
     int y_l;
+    void	*mlx;
+	void	*win;
+	void	*wall;
+	void	*ground;
+	void	*burger;
+	void	*player;
+	void	*exit;
 }s_data;
 
 
@@ -48,6 +55,8 @@ char	*ft_strdup(char *s);
 int rectangular(char **tab, int len);
 void	ft_validate_path(char **tab, int len);
 char	*get_next_line(int fd);
+int ft_print_error(char *str, s_data *point int flag);
+
 
 
 
