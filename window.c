@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:40:57 by iqattami          #+#    #+#             */
-/*   Updated: 2024/06/13 03:44:19 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/06/13 20:54:01 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void load_images(s_data *point)
         ft_print_error("exit can't load \n", point, 1);    
 }
 
-void draw_map(s_data *point, int i, int j)
+void draw_map(s_data *point)
 {
     int i;
     int j;
