@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:35:31 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/31 15:23:57 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/06/13 03:02:50 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ void	ft_str_replace(char *str, char c1, char c2)
 
 int main(int ac, char **av)
 {
-    void *ptr;
-    void *win;
+    s_data app;
     if(ac == 2)
     {
 
@@ -83,8 +82,8 @@ int main(int ac, char **av)
         if(protection(tab, len) == 1)
             write(1, "error\n", 6);
         
-         ptr = mlx_init();
-         win = mlx_new_window(ptr, 500, 600,
+         app.mlx = mlx_init();
+         app.win = mlx_new_window(app.mlx, len * 30, ft_strlen(tab[0]) * 30,
 			"so_long!");
             mlx_loop(ptr);
         
