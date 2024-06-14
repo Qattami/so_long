@@ -6,7 +6,7 @@
 #    By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 04:01:12 by iqattami          #+#    #+#              #
-#    Updated: 2024/06/13 20:58:11 by iqattami         ###   ########.fr        #
+#    Updated: 2024/06/14 02:58:38 by iqattami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,20 +30,21 @@
 
 
 NAME = so_long
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 MLX_FLAGS = -lmlx -lXext -lX11 -lm 
 
-SOURCES = errors.c g_n_l.c so_long.c split.c utils.c check_path.c window.c
+SOURCES = errors.c g_n_l.c so_long.c split.c utils.c check_path.c window.c \
+		 print_errors.c	
 
 OBJECTS = $(SOURCES:.c=.o)
 
 all : $(NAME)
 
 $(NAME) :$(OBJECTS)
-	$(CC) $(FLAGS) $^ $(MLX_FLAGS) -o $@
+	$(CC) $(CFLAGS) $^ $(MLX_FLAGS) -o $@
     
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@    
+	$(CC) $(CFLAGS) -c $< -o $@    
 
 clean :
 	rm -rf $(OBJECTS)

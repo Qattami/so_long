@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:31:26 by iqattami          #+#    #+#             */
-/*   Updated: 2024/06/13 20:55:32 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/06/14 03:05:58 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char	*get_next_line(int fd);
 int ft_print_error(char *str, s_data *point, int flag);
 void draw_map(s_data *point);
 void load_images(s_data *point);
+void	ft_str_replace(char *str, char c1, char c2);
 
 
 
