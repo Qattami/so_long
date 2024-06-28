@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:35:41 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/31 15:44:43 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:38:27 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,6 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-// char	*ft_strchr(char *str, int character)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		if (str[i] == (char)character)
-// 			return ((char *)str + i);
-// 		i++;
-// 	}
-// 	if (str[i] == (char)character)
-// 		return ((char *)str + i);
-// 	return (NULL);
-// }
 char	*ft_strchr(char *str, int c)
 {
 	while (*str)

@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:35:21 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/30 18:36:44 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/06/28 17:36:17 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int rectangular(char **tab, int len)
 {
-    if(ft_strlen(tab[0]) <= len)
+    if(ft_strlen(tab[0]) == len)
         return(1);
     return(0);
 }

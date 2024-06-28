@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:31:26 by iqattami          #+#    #+#             */
-/*   Updated: 2024/06/14 03:05:58 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/06/28 21:31:21 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <mlx.h>
+#include "minilibx-linux/mlx.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100000
@@ -26,13 +26,12 @@
 
 typedef struct  Data
 {
-    int collect;
+    int c;
     int enemy;
     char **map;
     int x_p;
     int y_p;
-    int x_l;
-    int y_l;
+    int moves;
     void	*mlx;
 	void	*win;
 	void	*wall;
@@ -57,6 +56,9 @@ int ft_print_error(char *str, s_data *point, int flag);
 void draw_map(s_data *point);
 void load_images(s_data *point);
 void	ft_str_replace(char *str, char c1, char c2);
+int	handle_keys(int keycode, s_data *app);
+void free_map(char **map);
+void	ft_putnbr(int n);
 
 
 
