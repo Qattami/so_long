@@ -6,93 +6,96 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:10:31 by iqattami          #+#    #+#             */
-/*   Updated: 2024/05/30 18:30:18 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/07/01 18:22:14 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_error(int fd)
+int	ft_count(char **tab, char c)
 {
-	write(fd,"path error", 10);
-	exit(1);
-}
-int	ft_count_c(char **tab, int len)
-{
-	int	x;
-	int	y;
-	int	x_l;
+	int	i;
+	int	j;
 	int	count_c;
 
-	y = 0;
+	i = 0;
 	count_c = 0;
-	x_l = ft_strlen(tab[0]);
-	while (y < len)
+	while (tab[i])
 	{
-		x = 0;
-		while (x < x_l)
+		j = 0;
+		while (tab[i][j])
 		{
-			if (tab[y][x] == 'C')
+			if (tab[i][j] == c)
 			{
 				count_c++;
 			}
-			x++;
+			j++;
 		}
-		y++;
+		i++;
 	}
 	return (count_c);
 }
-
-void	ft_floodfill(char **tab, int x, int y, int *e, int i, int j)
+int in_map(char **t)
 {
-	if (x <= 0 || x >= i || y <= 0 || y >= j
-		|| tab[y][x] == '1' )
-		return;
-	if(tab[y][x] == 'C'|| tab[y][x] == 'P' || tab[y][x] == '0')
-		tab[x][y] = '1';
-	
-	if (tab[y][x] == 'E')
-		*e = 1;
-	ft_floodfill(tab, x, (y + 1), e, i, j);
-	ft_floodfill(tab, x, (y - 1), e, i, j);
-	ft_floodfill(tab, (x + 1), y, e, i, j);
-	ft_floodfill(tab, (x - 1), y, e, i, j);
+	if(ft_count(t , 'C') < 1 || ft_count(t, 'P') < 1 || ft_count(t, 'E'))
+		{
+			write(1, "Error\n", 6);
+			return(1);
+		}
+	return (1);
 }
 
+void	ft_floodfill(char **tab, int x, int y, int i, int j)
+{
+	if (x < 0 || y < 0 || x >= i || y >= j) 
+        return;
+	if (tab[x][y] == '1' || tab[x][y] == 'O' )
+		return;
+	if(tab[x][y] == 'E' )
+	{
+		tab[x][y] = 'O';
+		return ;
+	}
+		
+	
+	tab[x][y] = 'O';
+	ft_floodfill(tab, (x + 1), y, i, j);
+	ft_floodfill(tab, (x - 1), y, i, j);
+	ft_floodfill(tab, x, (y + 1), i, j);
+	ft_floodfill(tab, x, (y - 1), i, j);
+}
 
+void ft_check_floodfill(char **map, s_data *app)
+{
+	int i;
+	int j;
 
-void	ft_validate_path(char **tab, int len)
+	i = 0;
+	while(map[i])
+	{
+		j = 0;
+		while(map[i][j])
+		{
+			if(map[i][j] == 'C' || map[i][j] == 'E')
+				ft_print_error("invalide map", app, 1);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	ft_validate_path(char **tab, s_data *app, int len)
 {
 	int	x;
 	int	y;
-	int e;
-	int i;
+	int	k;
+	char **map1;
 	
-	// y = 0;
-	// printf("jiji\n");
-	// while(y < 23)
-	// {
-	// 	printf("tab==%c",tab[0][y]);
-	// 	y++;
-	// }
-	y = 0;
-	e = 0;
-	i = ft_strlen(tab[0]);
-	while (y < len - 1)
-	{
-		x = 0;
-		while (x < i)
-		{
-			if (tab[y][x] == 'P')
-			{
-				ft_floodfill(tab, x, y, &e, i, len);
-				if (e == 0)
-					ft_error(1);
-				return ;
-			}
-			x++;
-		}
-		y++;
-	}
-	write(1, "ok\n", 3);
+	map1 = tab;
+	k = ft_strlen(map1[0]);
+	p_position(map1 , &x, &y);
+	ft_floodfill(map1, 1, 2, len, k);
+	ft_check_floodfill(map1, app);
+	free_map(map1);
+	exit(0);
 }

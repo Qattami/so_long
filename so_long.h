@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:31:26 by iqattami          #+#    #+#             */
-/*   Updated: 2024/06/28 21:31:21 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:51:29 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_strlen(char *s);
 char	*ft_strchr(char *str, int character);
 char	*ft_strdup(char *s);
 int rectangular(char **tab, int len);
-void	ft_validate_path(char **tab, int len);
+void	ft_validate_path(char **tab, s_data *app, int len);
 char	*get_next_line(int fd);
 int ft_print_error(char *str, s_data *point, int flag);
 void draw_map(s_data *point);
@@ -59,6 +59,10 @@ void	ft_str_replace(char *str, char c1, char c2);
 int	handle_keys(int keycode, s_data *app);
 void free_map(char **map);
 void	ft_putnbr(int n);
+int update_animation(s_data *app);
+int	ft_count(char **tab, char c);
+void p_position(char **map, int *a, int *b);
+int in_map(char **t);
 
 
 

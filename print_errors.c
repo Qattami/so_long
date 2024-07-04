@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 00:47:47 by iqattami          #+#    #+#             */
-/*   Updated: 2024/06/28 21:32:35 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/07/01 15:53:56 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,9 @@ void free_map(char **map)
 
 int ft_print_error(char *str, s_data *point, int flag)
 {
-    if (flag == 1)
-        ft_putstr("Error\n");
     ft_putstr(str);
-    free_map(point->map);
+    (void ) point; 
+    // free_map(point->map);
     exit(flag);
     return(1);
 }
