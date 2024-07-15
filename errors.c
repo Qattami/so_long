@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:35:21 by iqattami          #+#    #+#             */
-/*   Updated: 2024/06/28 17:36:17 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:30:24 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int check_border(char **str ,int len_get)
     len = ft_strlen(str[0]);
       j = -1;
       i = -1;
-    printf("%d\n",len_get);
-    printf("%d\n",len);
 
     while(++i < len_get )
         if(str[i][0] != '1')
@@ -81,24 +79,4 @@ int line_len(char **str ,int len)
     }
     return (0);
 }
-
-// void flood_fill(int pos_x, int pos_y, int target_color, int color)
-// {
-  
-//    if( || a[pos_x][pos_y] == 1 ) // if there is no wall or if i haven't been there
-//       return;                                              // already go back
-   
-//    if(a[pos_x][pos_y] != target_color) // if it's not color go back
-//       return;
-   
-//    a[pos_x][pos_y] = color; // mark the point so that I know if I passed through it. 
-   
-//    flood_fill(pos_x + 1, pos_y, color);  // then i can either go south
-//    flood_fill(pos_x - 1, pos_y, color);  // or north
-//    flood_fill(pos_x, pos_y + 1, color);  // or east
-//    flood_fill(pos_x, pos_y - 1, color);  // or west
-   
-//    return;
-
-// }
 

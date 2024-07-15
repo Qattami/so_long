@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:31:26 by iqattami          #+#    #+#             */
-/*   Updated: 2024/07/01 17:51:29 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/07/13 09:36:09 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 typedef struct  Data
 {
     int c;
-    int enemy;
+    int e;
+    int p;
     char **map;
     int x_p;
     int y_p;
@@ -50,7 +51,7 @@ int	ft_strlen(char *s);
 char	*ft_strchr(char *str, int character);
 char	*ft_strdup(char *s);
 int rectangular(char **tab, int len);
-void	ft_validate_path(char **tab, s_data *app, int len);
+void	ft_validate_path(s_data *app, int len);
 char	*get_next_line(int fd);
 int ft_print_error(char *str, s_data *point, int flag);
 void draw_map(s_data *point);
@@ -60,9 +61,11 @@ int	handle_keys(int keycode, s_data *app);
 void free_map(char **map);
 void	ft_putnbr(int n);
 int update_animation(s_data *app);
-int	ft_count(char **tab, char c);
+void	ft_count(s_data *app);
 void p_position(char **map, int *a, int *b);
-int in_map(char **t);
+int in_map(s_data *app);
+char **copy_map(char **tab, int len);
+
 
 
 

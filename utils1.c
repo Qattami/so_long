@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 13:21:43 by iqattami          #+#    #+#             */
-/*   Updated: 2024/07/01 17:44:57 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/07/13 09:35:14 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void change_player_position(s_data *app)
         m_moves(app);
     if(app->map[a + app->x_p][b + app->y_p] == 'E' && app->c == 0 )
     {
-        m_moves(app);
+        free_map(app->map);
         ft_print_error("Congrats!! you won ! 🥳", app, 0);
     }
       if(app->map[a + app->x_p][b + app->y_p] == 'E' && app->c != 0)
@@ -106,7 +106,6 @@ int handle_keys(int keycode, s_data *app)
     if (keycode == 65361 || keycode == 97) // Left arrow or 'A' key
         app->y_p = -1;
     change_player_position(app);
-   
     draw_map(app);
     return (0);
 }

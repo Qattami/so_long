@@ -6,7 +6,7 @@
 #    By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/25 04:01:12 by iqattami          #+#    #+#              #
-#    Updated: 2024/07/01 18:02:56 by iqattami         ###   ########.fr        #
+#    Updated: 2024/07/15 00:25:26 by iqattami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 NAME = so_long
 RM = rm -f
-SRCS = so_long.c utils.c check_path.c window.c print_errors.c errors.c g_n_l.c utils1.c 
+SRCS = so_long.c utils.c check_path.c window.c print_errors.c \
+		errors.c g_n_l.c utils1.c copy_map.c
 OBJS = $(SRCS:.c=.o)
 LIBS = libmlx.a  -L/usr/lib -lX11 -lXext
 

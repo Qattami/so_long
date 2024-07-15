@@ -6,7 +6,7 @@
 /*   By: iqattami <iqattami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:40:57 by iqattami          #+#    #+#             */
-/*   Updated: 2024/06/30 16:16:27 by iqattami         ###   ########.fr       */
+/*   Updated: 2024/07/06 21:48:45 by iqattami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,6 @@ void load_images(s_data *point)
         ft_print_error("exit can't load \n", point, 1);    
 }
 
-// void draw_map(s_data *point)
-// {
-//     int i;
-//     int j;
-
-//     i = 0;
-//     while(point->map[i])
-//     {
-//         j = 0;
-//         while(point->map[i][j])
-//         {
-//             mlx_put_image_to_window(point->mlx, point->win, point->ground, j * 30, i * 30);
-//             if(point->map[i][j] == 'P')
-//                 mlx_put_image_to_window(point->mlx, point->win, point->player, j * 30, i * 30);
-//             if(point->map[i][j] == 'E')
-//                 mlx_put_image_to_window(point->mlx, point->win, point->exit, j * 30, i * 30);
-//             if(point->map[i][j] == 'C')
-//                 mlx_put_image_to_window(point->mlx, point->win, point->burger, j * 30, i * 30);
-//             if(point->map[i][j] == '1')
-//                 mlx_put_image_to_window(point->mlx, point->win, point->wall, j * 30, i * 30);
-//             j++;
-//         }
-//         i++;
-//     }
-// }
 
 void draw_map(s_data *point)
 {
